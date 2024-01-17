@@ -6,8 +6,8 @@
     ================================================== -->
     <meta charset="utf-8">
     <title>{{ config('app.name') }}</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="personnal blog of Tom Boszko about web3, Robots, IA and much more">
+    <meta name="author" content="Tom Boszko">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -49,7 +49,7 @@
 
         <div class="s-header__logo">
             <a class="logo" href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.svg') }}" alt="Homepage">
+                <img src="{{ asset('images/avatar.jpg') }}" height="80px" width="80px" alt="Homepage">
             </a>
         </div>
 
@@ -165,9 +165,9 @@
                     <ul>
                         <li><a href="#0">Twitter</a></li>
                         <li><a href="#0">Facebook</a></li>
-                        <li><a href="#0">Dribbble</a></li>
-                        <li><a href="#0">Pinterest</a></li>
+                        <li><a href="#0">Youtube</a></li>
                         <li><a href="#0">Instagram</a></li>
+                        
                     </ul>
 
                 </div> <!-- end s-footer__social links --> 
@@ -202,7 +202,7 @@
             <div class="row">
                 <div class="column">
                     <div class="ss-copyright">
-                        <span>© Copyright Calvin 2020</span> 
+                        <span>© Copyright Tom Boszko 2024</span> 
                         <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
                     </div> <!-- end ss-copyright -->
                 </div>
