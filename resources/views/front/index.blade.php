@@ -21,7 +21,7 @@
                   <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
                   <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
                   <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
+                  <li><a href="#0"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
               </ul>
           </div>
 

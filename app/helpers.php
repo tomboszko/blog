@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 if (!function_exists('getImage')) {
     function getImage($post, $thumb = false)
     {   
