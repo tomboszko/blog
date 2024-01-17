@@ -19,4 +19,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::prefix('posts')->group(function () {
+    Route::name('posts.display')->get('{slug}', [FrontPostController::class, 'show']);
+});
+
 require __DIR__.'/auth.php';
