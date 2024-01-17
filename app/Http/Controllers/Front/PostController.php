@@ -46,4 +46,11 @@ class PostController extends Controller
 
         return view('front.index', compact('posts', 'heros'));
     }
+
+    public function show(Request $request, $slug)
+{
+    $post = $this->postRepository->getPostBySlug($slug);
+
+    return view('front.post', compact('post'));
+}
 }
