@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
-use app\models\Post;
+use App\models\Post;
 
 class CommentController extends Controller
 {

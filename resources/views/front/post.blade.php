@@ -127,7 +127,7 @@
 
         // Prepare show comments
         const prepareShowComments = e => {
-            console.log('Event:', e);
+           // console.log('Event:', e);
             e.preventDefault();
 
             document.getElementById('showbutton').toggleAttribute('hidden');
@@ -138,8 +138,8 @@
         // Show comments
         const showComments = async () => {
 
-            console.log('Sending request to:', '{{ route('posts.comments', $post->id) }}');
-            console.log('Headers:', headers);
+            //console.log('Sending request to:', '{{ route('posts.comments', $post->id) }}');
+           // console.log('Headers:', headers);
 
             // Send request
             const response = await fetch('{{ route('posts.comments', $post->id) }}', { 
@@ -147,11 +147,11 @@
                 headers: headers
             });
 
-            console.log('Response:', response);
+           // console.log('Response:', response);
 
             // Wait for response
             const data = await response.json();
-            console.log('Data:', data);
+           // console.log('Data:', data);
 
             document.getElementById('commentsList').innerHTML = data.html;
         }
