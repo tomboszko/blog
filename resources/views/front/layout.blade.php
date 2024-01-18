@@ -6,13 +6,12 @@
     ================================================== -->
     <meta charset="utf-8">
     <title>{{ isset($post) && $post->seo_title ? $post->seo_title :  config('app.name') }}</title>
-<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __(config('app.description')) }}">
-<meta name="author" content="{{ isset($post) ? $post->user->name : __(config('app.author')) }}">
-@if(isset($post) && $post->meta_keywords)
+    <meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __(config('app.description')) }}">
+    <meta name="author" content="{{ isset($post) ? $post->user->name : __(config('app.author')) }}">
+    @if(isset($post) && $post->meta_keywords)
     <meta name="keywords" content="{{ $post->meta_keywords }}">
-@endif
+    @endif
     
-
     <!-- mobile specific metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,13 +38,11 @@
 
 <body id="top">
 
-
     <!-- preloader
     ================================================== -->
     <div id="preloader"> 
     	<div id="loader"></div>
     </div>
-
 
     <!-- header
 ================================================== -->
@@ -111,11 +108,9 @@
 
     </header>
 
-
     <!-- hero
     ================================================== -->
     @yield('hero')
-
 
     <!-- content
 ================================================== -->
@@ -124,7 +119,6 @@
         @yield('main')
 
     </section>
-
 
     <!-- footer
     ================================================== -->
