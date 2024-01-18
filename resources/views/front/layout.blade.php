@@ -87,10 +87,10 @@
             <div class="s-header__search-inner">
                 <div class="row wide">
 
-                    <form role="search" method="get" class="s-header__search-form" action="#">
+                    <form role="search" method="get" class="s-header__search-form" action="{{ Route('posts.search') }}">
                         <label>
                             <span class="h-screen-reader-text">@lang('Search for:')</span>
-                            <input type="search" class="s-header__search-field" placeholder="Search for..." value="" name="s" title="Search for:" autocomplete="off">
+                            <input id="search" type="search" name="search" class="s-header__search-field" placeholder="@lang('Search for...')" title="@lang('Search for:')" autocomplete="off">
                         </label>
                         <input type="submit" class="s-header__search-submit" value="Search"> 
                     </form>

@@ -115,7 +115,6 @@ class PostController extends Controller
         $search = $request->search;
         $posts = $this->postRepository->search($this->nbrPages, $search);
         $title = __('Posts found with search: ') . '<strong>' . $search . '</strong>';
-
         return view('front.index', compact('posts', 'title'));
-    }
+}
 }
