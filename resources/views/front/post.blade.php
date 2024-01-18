@@ -42,12 +42,12 @@
                   <div class="meta-bottom">
                       
                       <div class="entry-cat-links meta-blk">
-                          <div class="cat-links">
-                              <span>@lang('In')</span> 
-                              @foreach ($post->categories as $category)
-                                  <a href="#">{{ $category->title }}</a>
-                              @endforeach
-                          </div>
+                        <div class="cat-links">
+                            <span>@lang('In')</span> 
+                            @foreach ($post->categories as $category)
+                                <a href="{{ route('category', $category->slug) }}">{{ $category->title }}</a>
+                            @endforeach
+                        </div>
 
                           <span>@lang('On')</span>
                           {{ formatDate($post->created_at) }}
