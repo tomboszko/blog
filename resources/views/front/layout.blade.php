@@ -160,7 +160,7 @@
 
                 <div class="column large-2 medium-3 tab-6 s-footer__social-links">
 
-                    <h5>Follow Us</h5>
+                    <h5>Follow Me</h5>
 
                     <ul>
                         <li><a href="#0">Twitter</a></li>
