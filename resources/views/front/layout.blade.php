@@ -168,7 +168,7 @@
 
                     <h5>About My Site</h5>
 
-                    <p>
+                    <p> <!-- VOIR DOSSIER TOM BOSZKO PROJET BLOG -->
                     Lorem ipsum Ut velit dolor Ut labore id fugiat in ut 
                     fugiat nostrud qui in dolore commodo eu magna Duis 
                     cillum dolor officia esse mollit proident Excepteur 
