@@ -9,9 +9,9 @@
     <meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __(config('app.description')) }}">
     <meta name="author" content="{{ isset($post) ? $post->user->name : __(config('app.author')) }}">
     @if(isset($post) && $post->meta_keywords)
-    <meta name="keywords" content="{{ $post->meta_keywords }}">
+        <meta name="keywords" content="{{ $post->meta_keywords }}">
     @endif
-    
+
     <!-- mobile specific metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,19 +38,21 @@
 
 <body id="top">
 
+
     <!-- preloader
     ================================================== -->
     <div id="preloader"> 
     	<div id="loader"></div>
     </div>
 
+
     <!-- header
-================================================== -->
-<header class="s-header @unless(currentRoute('home')) s-header--opaque @endunless">
+    ================================================== -->
+    <header class="s-header @unless(currentRoute('home')) s-header--opaque @endunless">
 
         <div class="s-header__logo">
             <a class="logo" href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.svg') }}" height="80px" width="80px" alt="Homepage">
+                <img src="{{ asset('images/logo.svg') }}" alt="Homepage">
             </a>
         </div>
 
@@ -68,10 +70,41 @@
                         <a href="#" title="">@lang('Categories')</a>
                         <ul class="sub-menu">
                             @foreach($categories as $category)
-                                <li><a href="#">{{ $category->title }}</a></li>
+                                <li><a href="{{ route('category', $category->slug) }}">{{ $category->title }}</a></li>
                             @endforeach
                         </ul>
                     </li>
+                    @guest
+                        @request('register')
+                            <li class="current">
+                                <a href="{{ request()->url() }}">@lang('Register')</a>
+                            </li>
+                        @endrequest
+                        <li {{ currentRoute('login') }}>
+                            <a href="{{ route('login') }}">@lang('Login')</a>
+                        </li>                        
+                        @request('forgot-password')
+                            <li class="current">
+                                <a href="{{ request()->url() }}">@lang('Password')</a>
+                            </li>
+                        @endrequest
+                        @request('reset-password/*')
+                            <li class="current">
+                                <a href="{{ request()->url() }}">@lang('Password')</a>
+                            </li>
+                        @endrequest
+                    @else
+                        <li>                                
+                            <form action="{{ route('logout') }}" method="POST" hidden>
+                                @csrf                                
+                            </form>
+                            <a 
+                                href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); this.previousElementSibling.submit();">
+                                @lang('Logout')
+                            </a>
+                        </li>
+                    @endguest
                 </ul>
 
                 <a href="#0" title="@lang('Close Menu')" class="s-header__overlay-close close-mobile-menu">@lang('Close')</a>
@@ -108,17 +141,20 @@
 
     </header>
 
+
     <!-- hero
     ================================================== -->
     @yield('hero')
 
+
     <!-- content
-================================================== -->
-<section class="s-content @if(currentRoute('home')) s-content--no-top-padding @endif">
+    ================================================== -->
+    <section class="s-content @if(currentRoute('home')) s-content--no-top-padding @endif">
 
         @yield('main')
 
     </section>
+
 
     <!-- footer
     ================================================== -->
@@ -158,14 +194,13 @@
 
                 <div class="column large-2 medium-3 tab-6 s-footer__social-links">
 
-                    <h5>Follow Me</h5>
+                    <h5>Suivez-moi</h5>
 
                     <ul>
                         <li><a href="#0">Twitter</a></li>
                         <li><a href="#0">Facebook</a></li>
                         <li><a href="#0">Youtube</a></li>
                         <li><a href="#0">Instagram</a></li>
-                        
                     </ul>
 
                 </div> <!-- end s-footer__social links --> 
