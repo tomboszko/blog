@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\HomeComposer;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\{ Blade, View };
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(['front.layout', 'front.index'], HomeComposer::class);
+
+        Blade::if('request', function ($url) {
+            return request()->is($url);
+        });
     }
 }
