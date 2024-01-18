@@ -28,9 +28,11 @@ class CommentController extends Controller
     return response()->json($commenter->valid ? 'ok' : 'invalid');
 }
 
-    public function destroy()
+    public function destroy(Comment $comment)
     {
-
+        $this->authorize('delete', $comment);
+        $comment->delete();
+        return response()->json();
     }
 
     public function comments(Post $post)
