@@ -44,8 +44,8 @@
 
 
     <!-- header
-    ================================================== -->
-    <header class="s-header">
+================================================== -->
+<header class="s-header @unless(currentRoute('home')) s-header--opaque @endunless">
 
         <div class="s-header__logo">
             <a class="logo" href="{{ route('home') }}">
@@ -114,8 +114,8 @@
 
 
     <!-- content
-    ================================================== -->
-    <section class="s-content s-content--no-top-padding">
+================================================== -->
+<section class="s-content @if(currentRoute('home')) s-content--no-top-padding @endif">
 
         @yield('main')
 
@@ -132,7 +132,7 @@
 
                 <div class="column large-3 medium-6 tab-12 s-footer__info">
 
-                    <h5>About Our Site</h5>
+                    <h5>About My Site</h5>
 
                     <p>
                     Lorem ipsum Ut velit dolor Ut labore id fugiat in ut 
