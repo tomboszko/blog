@@ -17,6 +17,7 @@ Route::name('category')->get('category/{category:slug}', [FrontPostController::c
 Route::name('author')->get('author/{user}', [FrontPostController::class, 'user']);
 Route::name('tag')->get('tag/{tag:slug}', [FrontPostController::class, 'tag']);
 
+// Posts
 Route::prefix('posts')->group(function () {
 
     Route::name('posts.display')->get('{slug}', [FrontPostController::class, 'show']);
@@ -24,9 +25,11 @@ Route::prefix('posts')->group(function () {
     Route::name('posts.comments')->get('{post}/comments', [FrontCommentController::class, 'comments']);
     Route::name('posts.comments.store')->post('{post}/comments', [FrontCommentController::class, 'store'])->middleware('auth');
 });
+
 // Delete comment
 Route::name('front.comments.destroy')->delete('comments/{comment}', [FrontCommentController::class, 'destroy']);
 
+// Admin
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
