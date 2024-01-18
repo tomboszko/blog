@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
+use app\models\Post;
 
 class CommentController extends Controller
 {
@@ -22,8 +23,15 @@ class CommentController extends Controller
 
     }
 
-    public function comments()
-    {
-
-    }
+    public function comments(Post $post)
+{
+    $comments = $post->validComments()
+                      ->withDepth()
+                      ->latest()
+                      ->get()
+                      ->toTree();
+    return [
+        'html' => view('front/comments', compact('comments'))->render(),
+    ];
+}
 }
