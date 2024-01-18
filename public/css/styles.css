@@ -2418,6 +2418,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * # additional components
  *
  * ------------------------------------------------------------------- */
+ 
+/*login page padding*/
+ .s-styles {
+    padding-bottom: var(--vspace-4);
+  }
 
 /* ------------------------------------------------------------------- 
  * ## additional typo styles
