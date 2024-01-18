@@ -37,7 +37,7 @@ class PostController extends Controller
     /**
      * Display a listing of the posts.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
