@@ -101,7 +101,6 @@ class PostController extends Controller
     {
         $posts = $this->postRepository->getActiveOrderByDateForTag($this->nbrPages, $tag->slug);
         $title = __('Posts for tag ') . '<strong>' . $tag->tag . '</strong>';
-
         return view('front.index', compact('posts', 'title'));
     }
 
