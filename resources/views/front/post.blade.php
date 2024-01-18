@@ -163,7 +163,7 @@
 
           // Set listeners
           window.addEventListener('DOMContentLoaded', () => {
-              wrapper('#showcomments', 'click', prepareShowComments);              
+              wrapper('showcomments', 'click', prepareShowComments);              
           })
 
       })()
