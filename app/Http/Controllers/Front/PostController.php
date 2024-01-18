@@ -67,7 +67,7 @@ class PostController extends Controller
      * Display a listing of the posts for the specified category.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function category(Category $category)
     {
@@ -81,7 +81,7 @@ class PostController extends Controller
      * Get posts for specified user
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function user(User $user)
     {
