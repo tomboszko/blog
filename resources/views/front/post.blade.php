@@ -34,9 +34,9 @@
                           <img class="avatar" src="{{ Gravatar::get($post->user->email) }}" alt="">
                       </div>
                       <div class="byline">
-                          <span class="bytext">@lang('Posted By')</span>
-                          <a href="#0">{{ $post->user->name }}</a>
-                      </div>
+                        <span class="bytext">@lang('Posted By')</span>
+                        <a href="{{ route('author', $post->user->id) }}">{{ $post->user->name }}</a>
+                    </div>
                   </div>
 
                   <div class="meta-bottom">
