@@ -292,7 +292,7 @@
                 e.preventDefault();
 
                 Swal.fire({
-                title: '@lang('Really delete this comment?')',
+                title: '@lang('Voulez-vous vraiment supprimer ce commentaire ?')',
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
