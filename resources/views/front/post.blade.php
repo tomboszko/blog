@@ -35,7 +35,7 @@
                       </div>
                       <div class="byline">
                           <span class="bytext">@lang('Posted By')</span>
-                          <a href="{{ route('author', $post->user->id) }}">{{ $post->user->name }}</a>
+                          <a href="#0">{{ $post->user->name }}</a>
                       </div>
                   </div>
 
@@ -45,7 +45,7 @@
                           <div class="cat-links">
                               <span>@lang('In')</span> 
                               @foreach ($post->categories as $category)
-                                  <a href="{{ route('category', $category->slug) }}">{{ $category->title }}</a>
+                                  <a href="#">{{ $category->title }}</a>
                               @endforeach
                           </div>
 
@@ -56,7 +56,7 @@
                       <div class="entry-tags meta-blk">
                           <span class="tagtext">@lang('Tags')</span>
                           @foreach($post->tags as $tag)
-                              <a href="{{ route('tag', $tag->slug) }}">{{ $tag->tag }}</a>
+                              <a href="#">{{ $tag->tag }}</a>
                           @endforeach
                       </div>
 

@@ -24,3 +24,4 @@ if (!function_exists('formatDate')) {
         return ucfirst(utf8_encode ($date->formatLocalized('%d %B %Y')));
     }
   }
+  
