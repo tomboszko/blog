@@ -125,29 +125,36 @@
               'X-Requested-With': 'XMLHttpRequest'
           }
 
-          // Prepare show comments
-          const prepareShowComments = e => {
-              e.preventDefault();
+        // Prepare show comments
+        const prepareShowComments = e => {
+            console.log('Event:', e);
+            e.preventDefault();
 
-              document.getElementById('showbutton').toggleAttribute('hidden');
-              document.getElementById('showicon').toggleAttribute('hidden');
-              showComments(); 
-          }
+            document.getElementById('showbutton').toggleAttribute('hidden');
+            document.getElementById('showicon').toggleAttribute('hidden');
+            showComments(); 
+        }
 
-          // Show comments
-          const showComments = async () => {
+        // Show comments
+        const showComments = async () => {
 
-              // Send request
-              const response = await fetch('{{ route('posts.comments', $post->id) }}', { 
-                  method: 'GET',
-                  headers: headers
-              });
+            console.log('Sending request to:', '{{ route('posts.comments', $post->id) }}');
+            console.log('Headers:', headers);
 
-              // Wait for response
-              const data = await response.json();
+            // Send request
+            const response = await fetch('{{ route('posts.comments', $post->id) }}', { 
+                method: 'GET',
+                headers: headers
+            });
 
-              document.getElementById('commentsList').innerHTML = data.html;
-          }
+            console.log('Response:', response);
+
+            // Wait for response
+            const data = await response.json();
+            console.log('Data:', data);
+
+            document.getElementById('commentsList').innerHTML = data.html;
+        }
 
           // Listener wrapper
           const wrapper = (selector, type, callback, condition = 'true', capture = false) => {
@@ -163,7 +170,7 @@
 
           // Set listeners
           window.addEventListener('DOMContentLoaded', () => {
-              wrapper('showcomments', 'click', prepareShowComments);              
+              wrapper('#showcomments', 'click', prepareShowComments);              
           })
 
       })()
