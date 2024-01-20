@@ -25,7 +25,6 @@ if (!function_exists('formatDate')) {
     }
   }
 
-  ...
 
 if (!function_exists('currentRouteActive')) {
   function currentRouteActive(...$routes)
