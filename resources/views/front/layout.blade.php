@@ -196,7 +196,7 @@
     
                 <div class="column large-2 medium-3 tab-6 s-footer__social-links">
     
-                    <h5>Follow Me</h5>
+                    <h5>@lang('Follow Me')</h5>
     
                     <ul>
                         @foreach($follows as $follow)

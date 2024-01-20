@@ -30,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('request', function ($url) {
             return request()->is($url);
         });
+        
+        setlocale(LC_TIME, config('app.locale'));
     }
 }
