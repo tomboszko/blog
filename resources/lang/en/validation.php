@@ -90,7 +90,7 @@ return [
         'string' => 'The :attribute must be at least :min characters.',
         'array' => 'The :attribute must have at least :min items.',
     ],
-    'multiple_of' => 'The :attribute must be a multiple of :value.',
+    'multiple_of' => 'The :attribute must be a multiple of :value',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
@@ -111,6 +111,7 @@ return [
         'string' => 'The :attribute must be :size characters.',
         'array' => 'The :attribute must contain :size items.',
     ],
+    'slug' => 'The :attribute must be a slug.',
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
@@ -131,8 +132,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'tags' => [
+            'regex' => "Tags, separated by commas (no spaces), should have a maximum of 50 characters.",
+        ],
+        'meta_keywords' => [
+            'regex' => "Keywords, separated by commas (no spaces), should have a maximum of 50 characters.",
         ],
     ],
 
