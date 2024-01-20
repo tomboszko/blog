@@ -40,6 +40,7 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->group(function () {
     Route::middleware('redac')->group(function () {
         Route::name('admin')->get('/', [AdminController::class, 'index']);
+        Route::name('purge')->put('purge/{model}', [AdminController::class, 'purge']);
     });
 });
 
