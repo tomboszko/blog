@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Post;
+use APP\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -79,7 +80,10 @@ class PostsDataTable extends DataTable
      * @param \App\Models\Post $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
+
+     
     public function query(Post $post)
+    
 {
     $query = isRole('redac') ? auth()->user()->posts() : $post->newQuery();
     if(Route::currentRouteNamed('posts.indexnew')) {
