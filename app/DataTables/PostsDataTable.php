@@ -11,6 +11,7 @@ use Yajra\DataTables\Services\DataTable;
 use Illuminate\Support\Facades\Route;
 class PostsDataTable extends DataTable
 {
+    use DataTableTrait;
     /**
      * Build DataTable class.
      *
@@ -18,11 +19,59 @@ class PostsDataTable extends DataTable
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
-    {
-        return datatables()
-            ->eloquent($query)
-            ->addColumn('action', 'posts.action');
-    }
+{
+    return datatables()
+        ->eloquent($query)
+        ->editColumn('categories', function ($post) {
+            return $this->getCategories($post);
+        })
+        ->editColumn('created_at', function ($post) {
+            return $this->getDate($post);
+        })
+        ->editColumn('comments_count', function ($post) {
+            return $this->badge($post->comments_count, 'secondary');
+        })
+        ->editColumn('action', function ($post) {
+            $buttons = $this->button(
+                            'posts.display', 
+                            $post->slug, 
+                            'success', 
+                            __('Show'), 
+                            'eye', 
+                            '',
+                            '_blank'
+                        );
+            if(Route::currentRouteName() === 'posts.indexnew') {
+                return $buttons;
+            }
+            $buttons .= $this->button(
+                'posts.edit', 
+                $post->id, 
+                'warning', 
+                __('Edit'), 
+                'edit'
+            );
+            if($post->user_id === auth()->id()) {
+                $buttons .= $this->button(
+                    'posts.create', 
+                    $post->id, 
+                    'info', 
+                    __('Clone'), 
+                    'clone'
+                );
+            }
+            
+            return $buttons . $this->button(
+                        'posts.destroy', 
+                        $post->id, 
+                        'danger', 
+                        __('Delete'), 
+                        'trash-alt', 
+                        __('Really delete this post?')
+                    );
+        })
+        ->rawColumns(['categories', 'comments_count', 'action', 'created_at']);
+}
 
     /**
      * Get query source of dataTable.
@@ -99,4 +148,24 @@ class PostsDataTable extends DataTable
     {
         return 'Posts_' . date('YmdHis');
     }
+
+
+    protected function getDate($post)
+{
+    if(!$post->active) {
+        return $this->badge('Not published', 'warning');
+    }
+    $updated = $post->updated_at > $post->created_at;
+    $html = $this->badge($updated ? 'Last update' : 'Published', 'success');
+    $html .= '<br>' . formatDate($updated ? $post->updated_at : $post->created_at) . __(' at ') . formatHour($updated ? $post->updated_at : $post->created_at);
+    return $html;
+}
+protected function getCategories($post)
+{
+    $html = '';
+    foreach($post->categories as $category) {
+        $html .= $category->title . '<br>';
+    }
+    return $html;
+}
 }
