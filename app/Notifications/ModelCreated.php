@@ -7,7 +7,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-
 class ModelCreated extends Notification
 {
     use Queueable;
@@ -30,7 +29,7 @@ class ModelCreated extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -59,9 +58,4 @@ class ModelCreated extends Notification
             //
         ];
     }
-
-    public function via($notifiable)
-{
-    return ['database'];
-}
 }
