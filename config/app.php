@@ -247,7 +247,7 @@ return [
 |--------------------------------------------------------------------------
 */
 
-'description' => 'The best blog in the world',
+'description' => 'Blog about AI, Web3, robots, new technologies, futurism, and more.',
 'author' => 'Tom Boszko',
 
 /*
