@@ -8,7 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-
+use Illuminate\Support\Facades\Route;
 class PostsDataTable extends DataTable
 {
     /**
@@ -30,10 +30,25 @@ class PostsDataTable extends DataTable
      * @param \App\Models\Post $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Post $model)
-    {
-        return $model->newQuery();
+    public function query(Post $post)
+{
+    $query = isRole('redac') ? auth()->user()->posts() : $post->newQuery();
+    if(Route::currentRouteNamed('posts.indexnew')) {
+        $query->has('unreadNotifications');
     }
+    return $query->select(
+                    'posts.id',
+                    'slug',
+                    'title',
+                    'active',
+                    'posts.created_at',
+                    'posts.updated_at',
+                    'user_id')
+                ->with(
+                    'user:id,name',
+                    'categories:title')
+                ->withCount('comments');
+}
 
     /**
      * Optional method if you want to use html builder.
@@ -41,21 +56,14 @@ class PostsDataTable extends DataTable
      * @return \Yajra\DataTables\Html\Builder
      */
     public function html()
-    {
-        return $this->builder()
-                    ->setTableId('posts-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
-    }
+{
+    return $this->builder()
+                ->setTableId('posts-table')
+                ->columns($this->getColumns())
+                ->minifiedAjax()
+                ->dom('Blfrtip')
+                ->lengthMenu();
+}
 
     /**
      * Get columns.
@@ -63,19 +71,24 @@ class PostsDataTable extends DataTable
      * @return array
      */
     protected function getColumns()
-    {
-        return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
-        ];
+{
+    $columns = [
+        Column::make('title')->title(__('Title'))
+    ];
+    
+    if(auth()->user()->role === 'admin') {
+        array_push($columns, 
+            Column::make('user.name')->title(__('Author'))
+        );
     }
+    array_push($columns,
+        Column::computed('categories')->title(__('Categories')),
+        Column::computed('comments_count')->title(__('Comments'))->addClass('text-center align-middle'),
+        Column::make('created_at')->title(__('Date')),
+        Column::computed('action')->title(__('Action'))->addClass('align-middle text-center')
+    );
+    return $columns;
+}
 
     /**
      * Get filename for export.
