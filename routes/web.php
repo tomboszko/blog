@@ -42,5 +42,9 @@ Route::resource('contacts', FrontContactController::class, ['only' => ['create',
 // Pages
 Route::name('page')->get('page/{page:slug}', FrontPageController::class);
 
+// Test custom error
+Route::get('/test-error', function () {
+    abort(404);
+});
 
 require __DIR__.'/auth.php';
