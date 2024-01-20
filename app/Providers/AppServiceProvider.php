@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\HomeComposer;
-use Illuminate\Support\Facades\{ Blade, View };
+use Illuminate\Support\Facades\{ Blade, View, route };
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('request', function ($url) {
             return request()->is($url);
+        });
+
+        View::composer('back.layout', function ($view) {
+            $title = config('titles.' . Route::currentRouteName());
+            $view->with(compact('title'));
         });
         
         setlocale(LC_TIME, config('app.locale'));
