@@ -8,7 +8,9 @@ use App\Http\Controllers\Front\{
     CommentController as FrontCommentController,
     ContactController as FrontContactController,
     PageController as FrontPageController,
+    PostController as BackPostController,
 };
+
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], function () {
     Lfm::routes();
@@ -41,7 +43,12 @@ Route::prefix('admin')->group(function () {
     Route::middleware('redac')->group(function () {
         Route::name('admin')->get('/', [AdminController::class, 'index']);
         Route::name('purge')->put('purge/{model}', [AdminController::class, 'purge']);
+        Route::resource('posts', BackPostController::class)->except('show');
     });
+    Route::middleware('admin')->group(function () {
+        Route::name('posts.indexnew')->get('newposts', [BackPostController::class, 'index']);
+    });
+
 });
 
 //provisoire
