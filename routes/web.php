@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
+use App\Http\Controllers\Back\AdminController;
 use App\Http\Controllers\Front\{
     PostController as FrontPostController,
     CommentController as FrontCommentController,
@@ -36,8 +37,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::prefix('admin')->group(function () {
+    Route::middleware('redac')->group(function () {
+        Route::name('admin')->get('/', [AdminController::class, 'index']);
+    });
+});
+
 //provisoire
-Route::view('admin', 'back.layout');
+//Route::view('admin', 'back.layout');
 
 
 
