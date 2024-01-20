@@ -36,6 +36,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+//provisoire
+Route::view('admin', 'back.layout');
+
+
+
 // Contact
 Route::resource('contacts', FrontContactController::class, ['only' => ['create', 'store']]);
 
@@ -46,5 +51,8 @@ Route::name('page')->get('page/{page:slug}', FrontPageController::class);
 Route::get('/test-error', function () {
     abort(404);
 });
+
+
+
 
 require __DIR__.'/auth.php';
