@@ -44,6 +44,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Determine if user is administrator
+     *
+     * @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
      * One to Many relation
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -63,15 +73,7 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    /**
-     * Determine if user is administrator
-     *
-     * @return boolean
-     */
-    public function isAdmin()
-    {
-        return $this->role === 'admin';
-    }
+    
 
     protected $dispatchesEvents = [
         'created' => ModelCreated::class,

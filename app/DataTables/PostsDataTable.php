@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Post;
-use APP\Models\User;
+use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
