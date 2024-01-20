@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 use App\Http\Controllers\Front\{
     PostController as FrontPostController,
-    CommentController as FrontCommentController
+    CommentController as FrontCommentController,
+    ContactController as FrontContactController
 };
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], function () {
@@ -33,5 +34,8 @@ Route::name('front.comments.destroy')->delete('comments/{comment}', [FrontCommen
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// Contact
+Route::resource('contacts', FrontContactController::class, ['only' => ['create', 'store']]);
 
 require __DIR__.'/auth.php';
