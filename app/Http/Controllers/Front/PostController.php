@@ -39,7 +39,7 @@ class PostController extends Controller
     /**
      * Display a listing of the posts.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -54,12 +54,12 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  string $slug
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $slug)
     {
         $post = $this->postRepository->getPostBySlug($slug);
-
+ 
         return view('front.post', compact('post'));
     }
 
@@ -67,7 +67,7 @@ class PostController extends Controller
      * Display a listing of the posts for the specified category.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function category(Category $category)
     {
@@ -81,7 +81,7 @@ class PostController extends Controller
      * Get posts for specified user
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function user(User $user)
     {
@@ -101,6 +101,7 @@ class PostController extends Controller
     {
         $posts = $this->postRepository->getActiveOrderByDateForTag($this->nbrPages, $tag->slug);
         $title = __('Posts for tag ') . '<strong>' . $tag->tag . '</strong>';
+
         return view('front.index', compact('posts', 'title'));
     }
 
@@ -115,6 +116,7 @@ class PostController extends Controller
         $search = $request->search;
         $posts = $this->postRepository->search($this->nbrPages, $search);
         $title = __('Posts found with search: ') . '<strong>' . $search . '</strong>';
+
         return view('front.index', compact('posts', 'title'));
-}
+    }
 }
