@@ -233,5 +233,13 @@ class DatabaseSeeder extends Seeder
                 'title' => $item[1],
             ]);
         }
+
+        // Social
+        DB::table('follows')->insert([
+            ['title' => 'Twitter', 'href' => '#'],
+            ['title' => 'Facebook', 'href' => '#'],
+            ['title' => 'Dribbble', 'href' => '#'],
+            ['title' => 'Instagram', 'href' => '#'],
+        ]);
     }
 }

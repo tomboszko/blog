@@ -199,11 +199,9 @@
                     <h5>Follow Me</h5>
     
                     <ul>
-                        <li><a href="#0">Twitter</a></li>
-                        <li><a href="#0">Facebook</a></li>
-                        <li><a href="#0">Dribbble</a></li>
-                        <li><a href="#0">Pinterest</a></li>
-                        <li><a href="#0">Instagram</a></li>
+                        @foreach($follows as $follow)
+                            <li><a href="{{ $follow->href }}" target="_blank">{{ $follow->title }}</a></li>
+                        @endforeach
                     </ul>
     
                 </div>

@@ -15,15 +15,21 @@
           </div>
 
           <div class="s-hero__social hide-on-mobile-small">
-              <p>@lang('Follow')</p>
-              <span></span>
-              <ul class="s-hero__social-icons">
-                  <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-              </ul>
-          </div>
+            <p>@lang('Follow')</p>
+            <span></span>
+            <ul class="s-hero__social-icons">
+            @foreach($follows as $follow)
+                <li>
+                    <a href="{{ $follow->href }}" target="_blank" >
+                        <i 
+                            class="fab fa-{{ $follow->title === 'Facebook' ? 'facebook-f' : lcfirst($follow->title) }}" 
+                            aria-hidden="true">
+                        </i>
+                    </a>
+                </li>
+            @endforeach
+            </ul>
+        </div>
 
           <div class="nav-arrows s-hero__nav-arrows">
               <button class="s-hero__arrow-prev">
