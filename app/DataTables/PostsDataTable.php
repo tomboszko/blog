@@ -82,26 +82,7 @@ class PostsDataTable extends DataTable
      */
 
      
-    public function query(Post $post)
     
-{
-    $query = isRole('redac') ? auth()->user()->posts() : $post->newQuery();
-    if(Route::currentRouteNamed('posts.indexnew')) {
-        $query->has('unreadNotifications');
-    }
-    return $query->select(
-                    'posts.id',
-                    'slug',
-                    'title',
-                    'active',
-                    'posts.created_at',
-                    'posts.updated_at',
-                    'user_id')
-                ->with(
-                    'user:id,name',
-                    'categories:title')
-                ->withCount('comments');
-}
 
     /**
      * Optional method if you want to use html builder.
@@ -172,4 +153,26 @@ protected function getCategories($post)
     }
     return $html;
 }
+
+public function query(Post $post)
+    
+{
+    $query = isRole('redac') ? auth()->user()->posts() : $post->newQuery();
+    if(Route::currentRouteNamed('posts.indexnew')) {
+        $query->has('unreadNotifications');
+    }
+    return $query->select(
+                    'posts.id',
+                    'slug',
+                    'title',
+                    'active',
+                    'posts.created_at',
+                    'posts.updated_at',
+                    'user_id')
+                ->with(
+                    'user:id,name',
+                    'categories:title')
+                ->withCount('comments');
+}
+
 }
