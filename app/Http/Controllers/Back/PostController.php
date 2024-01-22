@@ -80,10 +80,12 @@ public function create($id = null)
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
+    public function update(PostRequest $request, PostRepository $repository, Post $post)
+{
+    $repository->update($post, $request);
+
+    return back()->with('ok', __('The post has been successfully updated'));
+}
 
     /**
      * Remove the specified resource from storage.
