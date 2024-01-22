@@ -2,6 +2,8 @@
 
 namespace App\DataTables;
 
+
+use App\Models\User;
 use App\Models\Post;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;

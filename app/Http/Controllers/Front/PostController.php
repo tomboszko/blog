@@ -81,7 +81,7 @@ class PostController extends Controller
      * Get posts for specified user
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function user(User $user)
     {
