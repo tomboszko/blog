@@ -67,9 +67,11 @@ public function create($id = null)
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {
-        //
-    }
+{
+    $categories = Category::all()->pluck('title', 'id');
+
+    return view('back.posts.form', compact('post', 'categories'));
+}
 
     /**
      * Update the specified resource in storage.
