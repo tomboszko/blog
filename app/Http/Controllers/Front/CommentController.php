@@ -9,7 +9,7 @@ class CommentController extends Controller
 {
     public function __construct()
     {
-        if(!request()->ajax()) {
+        if(!app()->runningInConsole() && !request()->ajax()) {
             abort(403);
         }
     }
