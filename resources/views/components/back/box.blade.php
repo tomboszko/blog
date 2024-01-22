@@ -15,7 +15,7 @@
     <div class="icon">
       <i class="ion ion-bag"></i>
     </div>
-    <a href="#" class="small-box-footer">@lang('More info') <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="{{ route($route) }}" class="small-box-footer">@lang('More info') <i class="fas fa-arrow-circle-right"></i></a>
     <form action="{{ route('purge', $model) }}" method="POST">
       @csrf
       @method('PUT')
