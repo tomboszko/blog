@@ -184,7 +184,7 @@
     
                 <div class="column large-6 medium-6 tab-12 s-footer__info">
     
-                    <h5>@lang('About My Site')</h5>
+                    <h5>@lang('About Our Site')</h5>
     
                     <p>
                     Lorem ipsum Ut velit dolor Ut labore id fugiat in ut 
@@ -210,7 +210,7 @@
     
                 <div class="column large-2 medium-3 tab-6 s-footer__social-links">
     
-                    <h5>@lang('Follow Me')</h5>
+                    <h5>@lang('Follow Us')</h5>
     
                     <ul>
                         @foreach($follows as $follow)
@@ -224,7 +224,7 @@
     
         </div>
     
-        <div class="s-footer__bottom">
+        <div class="s-footer__bottom" style="text-align: center;" >
             <div class="row">
                 <div class="column">
                     <div class="ss-copyright">
