@@ -116,6 +116,7 @@
   "of": "de",
   "Oh no": "Oh non",
   "On": "Le",
+  "optional": "optionnel",
   "Page Creation": "Création d'une page",
   "Page Edit": "Modification d'une page",
   "Page Expired": "Erreur 419, session expiré",
@@ -241,7 +242,8 @@
   "You have been successfully updated": "Vos modifications ont bien été enregistrées",
   "Your comment has been saved": "Votre commentaire a bien été enregistré",
   "Your email": "Votre email",
-
+  "Your Password": "Votre mot de passe",
+  "Your Password if you want to change it": "Votre mot de passe si vous désirez le changer",
   "Your Message": "Votre message",
   "Your message has been recorded, we will respond as soon as possible.": "Votre message a bien été enregistré. Nous vous répondrons dès que possible.",
   "Your name": "Votre nom",
