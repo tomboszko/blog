@@ -11,6 +11,7 @@ use App\Http\Controllers\Front\{
 use App\Http\Controllers\Back\{
     AdminController,
     PostController as BackPostController,
+    UserController as BackUserController,
     ResourceController as BackResourceController
 };
 
@@ -69,5 +70,8 @@ Route::prefix('admin')->group(function () {
         Route::name('posts.indexnew')->get('newposts', [BackPostController::class, 'index']);
         // Categories
         Route::resource('categories', BackResourceController::class)->except(['show']);
+        // Users
+        Route::resource('users', BackUserController::class)->except(['show', 'create', 'store']);
+        Route::name('users.indexnew')->get('newusers', [BackResourceController::class, 'index']);
     });
 });
