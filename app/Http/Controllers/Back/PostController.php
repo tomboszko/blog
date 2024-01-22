@@ -94,7 +94,9 @@ public function create($id = null)
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
-        //
-    }
+{
+    $post->delete();
+
+    return response()->json();
+}
 }
