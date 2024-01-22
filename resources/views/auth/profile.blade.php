@@ -65,9 +65,51 @@
                 </div>
 
                 <x-auth.submit title="Save" />
+                <a id="delete" href="{{ route('deleteAccount') }}" class="btn btn--primary h-full-width" style="background: crimson;">@lang('Delete account')</a>
                  
             </form>
         </div>
     </div>
+@endsection
 
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Variables
+        const headers = {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}', 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+        // Delete account
+        const deleteAccount = async e => {              
+            e.preventDefault();
+            Swal.fire({
+                title: '@lang('Really delete your account?')',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: '@lang('Yes')',
+                cancelButtonText: '@lang('No')',
+                preConfirm: () => {
+                    return fetch(e.target.getAttribute('href'), { 
+                        method: 'DELETE',
+                        headers: headers
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            document.location.reload();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: '@lang('Whoops!')',
+                                text: '@lang('Something went wrong!')'
+                            });  
+                        }
+                    });
+                }
+            });
+        }
+        document.getElementById('delete').addEventListener('click', e => deleteAccount(e));
+    </script>
 @endsection
