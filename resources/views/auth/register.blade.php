@@ -51,3 +51,7 @@
     </div>
 
 @endsection
+
+@section('scripts')
+    <x-auth.rgpd-script />
+@endsection
