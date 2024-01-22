@@ -75,4 +75,26 @@ return [
             ],
         ],
     ],
+
+    'Comments' => [
+        'icon' => 'comment',
+        'role'   => 'redac',
+        'children' => [
+            [
+                'name'  => 'All comments',
+                'role'  => 'redac',
+                'route' => 'comments.index',
+            ],
+            [
+                'name'  => 'New comments',
+                'role'  => 'redac',
+                'route' => 'comments.indexnew',
+            ],
+            [
+                'name'  => 'fake',
+                'role'  => 'redac',
+                'route' => 'comments.edit',
+            ],
+        ],
+    ],
 ];
