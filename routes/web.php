@@ -90,7 +90,7 @@ Route::prefix('admin')->group(function () {
     });
 
     // Profile
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'password.confirm'])->group(function () {
         Route::view('profile', 'auth.profile');
         Route::name('profile')->put('profile', [RegisteredUserController::class, 'update']);
 });
