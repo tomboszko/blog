@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 use App\Http\Controllers\Front\{
@@ -86,5 +86,14 @@ Route::prefix('admin')->group(function () {
         Route::resource('follows', BackResourceController::class)->except(['show']);
         // Pages
         Route::resource('pages', BackResourceController::class)->except(['show']);
+        
     });
+
+    // Profile
+    Route::middleware('auth')->group(function () {
+        Route::view('profile', 'auth.profile');
+        Route::name('profile')->put('profile', [RegisteredUserController::class, 'update']);
+});
+
+
 });
