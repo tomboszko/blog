@@ -12,6 +12,15 @@ class Post extends Model
     use HasFactory, Notifiable;
 
     /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => ModelCreated::class,
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -80,8 +89,4 @@ class Post extends Model
             $query->whereValid(true);
         });
     }
-
-    protected $dispatchesEvents = [
-        'created' => ModelCreated::class,
-    ];
 }

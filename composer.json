@@ -12,6 +12,7 @@
         "asm89/stack-cors": "^2.2",
         "creativeorange/gravatar": "~1.0",
         "fideloper/proxy": "*",
+        "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "kalnoy/nestedset": "^5.0",
         "laravel/framework": "^8.74",
