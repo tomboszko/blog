@@ -11,8 +11,8 @@ use App\Http\Controllers\Front\{
 use App\Http\Controllers\Back\{
     AdminController,
     PostController as BackPostController,
+    ResourceController as BackResourceController,
     UserController as BackUserController,
-    ResourceController as BackResourceController
 };
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], function () {
