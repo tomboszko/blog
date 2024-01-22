@@ -35,4 +35,9 @@ return [
         'indexnew' => 'New Comments',
         'edit'   => 'Comment Edit',
     ],
+
+    'contacts' => [
+        'index'  => 'Contacts',
+        'indexnew' => 'New Contacts',
+    ],
 ];

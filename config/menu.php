@@ -97,4 +97,21 @@ return [
             ],
         ],
     ],
+
+    'Contacts' => [
+        'icon' => 'envelope',
+        'role'   => 'admin',
+        'children' => [
+            [
+                'name'  => 'All contacts',
+                'role'  => 'admin',
+                'route' => 'contacts.index',
+            ],
+            [
+                'name'  => 'New contacts',
+                'role'  => 'admin',
+                'route' => 'contacts.indexnew',
+            ],
+        ],
+    ],
 ];
