@@ -59,3 +59,9 @@
     </div>
 
 @endsection
+
+@section('scripts')
+    @if(Auth::guest())
+        <x-auth.rgpd-script />    
+    @endif
+@endsection
