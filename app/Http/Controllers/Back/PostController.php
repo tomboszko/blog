@@ -99,4 +99,10 @@ public function create($id = null)
 
     return response()->json();
 }
+
+public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
+
 }
