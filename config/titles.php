@@ -40,4 +40,10 @@ return [
         'index'  => 'Contacts',
         'indexnew' => 'New Contacts',
     ],
+
+    'follows' => [
+        'index'  => 'Follows',
+        'create' => 'Follow Creation',
+        'edit'   => 'Follow Edit',
+    ],
 ];

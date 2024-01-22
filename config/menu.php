@@ -114,4 +114,27 @@ return [
             ],
         ],
     ],
+    
+    'Follows' => [
+        'icon' => 'share-alt',
+        'role'   => 'admin',
+        'children' => [
+            [
+                'name'  => 'All follows',
+                'role'  => 'admin',
+                'route' => 'follows.index',
+            ],
+            [
+                'name'  => 'Add',
+                'role'  => 'admin',
+                'route' => 'follows.create',
+            ],
+            [
+                'name'  => 'fake',
+                'role'  => 'admin',
+                'route' => 'follows.edit',
+            ],
+        ],
+    ],
+
 ];
