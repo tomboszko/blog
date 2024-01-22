@@ -6,7 +6,7 @@
         <div class="column large-12">
 
             <div class="s-content__entry-header">
-                <h1 class="s-content__title">@lang('Get In Touch With Me')</h1>
+                <h1 class="s-content__title">@lang('Get In Touch With Us')</h1>
             </div>
 
             <div class="row row-x-center">
