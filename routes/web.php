@@ -24,6 +24,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], functi
 Route::middleware(['auth', 'password.confirm'])->group(function () {
     Route::view('profile', 'auth.profile');
     Route::name('profile')->put('profile', [RegisteredUserController::class, 'update']);
+    Route::name('deleteAccount')->delete('profile/delete',  [RegisteredUserController::class, 'destroy']);
 });
 
 // Home
