@@ -7,7 +7,6 @@ return [
         'route'  => 'admin',
         'icon'   => 'tachometer-alt',
     ],
-    
     'Posts' => [
         'icon' => 'file-alt',
         'role'   => 'redac',
@@ -34,7 +33,6 @@ return [
             ],
         ],
     ],
-
     'Categories' => [
         'icon' => 'list',
         'role'   => 'admin',
@@ -56,7 +54,6 @@ return [
             ],
         ],
     ],
-
     'Users' => [
         'icon' => 'user',
         'role'   => 'admin',
@@ -78,6 +75,4 @@ return [
             ],
         ],
     ],
-
-    
 ];
