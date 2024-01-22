@@ -54,10 +54,11 @@ public function create($id = null)
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(PostRequest $request, PostRepository $repository)
+{
+    $repository->store($request);
+    return back()->with('ok', __('The post has been successfully created'));
+}
 
     /**
      * Show the form for editing the specified resource.
