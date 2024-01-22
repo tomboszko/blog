@@ -103,16 +103,22 @@
             <a href="{{ url('admin') }}">@lang('Administration')</a>
         </li>
     @endif
-                        <li>                                
-                            <form action="{{ route('logout') }}" method="POST" hidden>
-                                @csrf                                
-                            </form>
-                            <a 
-                                href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); this.previousElementSibling.submit();">
-                                @lang('Logout')
-                            </a>
-                        </li>
+    <li class="has-children">
+        <a href="#" title="">{{ auth()->user()->name }}</a>
+        <ul class="sub-menu">
+            <li>
+                <form action="{{ route('logout') }}" method="POST" hidden>
+                    @csrf                                
+                </form>
+                <a 
+                    href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); this.previousElementSibling.submit();">
+                    @lang('Logout')
+                </a>
+            </li>
+            <li><a href="{{ url('profile') }}">@lang('Profile')</a></li>
+        </ul>
+    </li>
 
                         
                     @endguest
