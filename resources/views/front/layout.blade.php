@@ -176,7 +176,7 @@
 
     <!-- footer
     ================================================== -->
-    <footer class="s-footer">
+    <footer class="s-footer" style="padding: 2rem">
 
         <div class="s-footer__main">
     
