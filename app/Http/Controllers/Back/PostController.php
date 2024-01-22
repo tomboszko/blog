@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
-use App\Models\Post;
+use App\Http\{
+    Controllers\Controller,
+    Requests\Back\PostRequest
+};
+use App\Repositories\PostRepository;
+use App\Models\{ Post, Category };
 use Illuminate\Http\Request;
 use App\DataTables\PostsDataTable;
 
@@ -25,10 +29,24 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    
+public function create($id = null)
+{
+    $post = null; 
+    if($id) {
+        $post = Post::findOrFail($id);
+        if($post->user_id === auth()->id()) {
+            $post->title .= ' (2)';
+            $post->slug .='-2';
+            $post->active = false;
+        } else {
+            $post = null;
+        } 
     }
+    
+    $categories = Category::all()->pluck('title', 'id');
+    return view('back.posts.form', compact('post', 'categories'));
+}
 
     /**
      * Store a newly created resource in storage.
