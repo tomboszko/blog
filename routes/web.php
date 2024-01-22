@@ -79,5 +79,8 @@ Route::prefix('admin')->group(function () {
         // Users
         Route::resource('users', BackUserController::class)->except(['show', 'create', 'store']);
         Route::name('users.indexnew')->get('newusers', [BackResourceController::class, 'index']);
+        // Contacts
+        Route::resource('contacts', BackResourceController::class)->only(['index', 'destroy']);
+        Route::name('contacts.indexnew')->get('newcontacts', [BackResourceController::class, 'index']);
     });
 });
