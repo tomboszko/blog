@@ -11,6 +11,7 @@ class ResourceController extends Controller
     protected $view;
     protected $formRequest;
     protected $singular;
+    protected $model;
 
     /**
      * Create the controller instance.
