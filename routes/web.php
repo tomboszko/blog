@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\Auth\RegisteredUserController;
+
 use Illuminate\Support\Facades\Route;
 use UniSharp\LaravelFilemanager\Lfm;
 use App\Http\Controllers\Front\{
@@ -14,9 +14,16 @@ use App\Http\Controllers\Back\{
     ResourceController as BackResourceController,
     UserController as BackUserController,
 };
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], function () {
     Lfm::routes();
+});
+
+// Profile
+Route::middleware(['auth', 'password.confirm'])->group(function () {
+    Route::view('profile', 'auth.profile');
+    Route::name('profile')->put('profile', [RegisteredUserController::class, 'update']);
 });
 
 // Home
@@ -25,7 +32,7 @@ Route::name('category')->get('category/{category:slug}', [FrontPostController::c
 Route::name('author')->get('author/{user}', [FrontPostController::class, 'user']);
 Route::name('tag')->get('tag/{tag:slug}', [FrontPostController::class, 'tag']);
 Route::name('page')->get('page/{page:slug}', FrontPageController::class);
-//posts
+
 Route::prefix('posts')->group(function () {
     Route::name('posts.display')->get('{slug}', [FrontPostController::class, 'show']);
     Route::name('posts.search')->get('', [FrontPostController::class, 'search']);
@@ -82,18 +89,9 @@ Route::prefix('admin')->group(function () {
         // Contacts
         Route::resource('contacts', BackResourceController::class)->only(['index', 'destroy']);
         Route::name('contacts.indexnew')->get('newcontacts', [BackResourceController::class, 'index']);
-        // Follows (social links)
+        // Follows
         Route::resource('follows', BackResourceController::class)->except(['show']);
         // Pages
         Route::resource('pages', BackResourceController::class)->except(['show']);
-        
     });
-
-    // Profile
-    Route::middleware(['auth', 'password.confirm'])->group(function () {
-        Route::view('profile', 'auth.profile');
-        Route::name('profile')->put('profile', [RegisteredUserController::class, 'update']);
-});
-
-
 });
