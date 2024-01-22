@@ -65,6 +65,9 @@ Route::prefix('admin')->group(function () {
         // Users
         Route::name('users.valid')->put('valid/{user}', [BackUserController::class, 'valid']);
         Route::name('users.unvalid')->put('unvalid/{user}', [BackUserController::class, 'unvalid']);
+        // Comments
+        Route::resource('comments', BackResourceController::class)->except(['show', 'create', 'store']);
+        Route::name('comments.indexnew')->get('newcomments', [BackResourceController::class, 'index']); 
     });
 
     Route::middleware('admin')->group(function () {
