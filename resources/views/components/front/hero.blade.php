@@ -20,7 +20,9 @@
               </span>
           </div>
           <h1 class="s-hero__slide-text">
-              <a href="#">{{ $post->title }}</a>
+            
+            <a href="{{ route('posts.display', $post->slug) }}">{{ $post->title }}</a>
+              
           </h1>
       </div>
   </div>
