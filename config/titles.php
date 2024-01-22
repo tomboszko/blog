@@ -46,4 +46,11 @@ return [
         'create' => 'Follow Creation',
         'edit'   => 'Follow Edit',
     ],
+    
+    'pages' => [
+        'index'  => 'Pages',
+        'create' => 'Page Creation',
+        'edit'   => 'Page Edit',
+    ],
+
 ];

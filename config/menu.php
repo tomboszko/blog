@@ -114,7 +114,7 @@ return [
             ],
         ],
     ],
-    
+
     'Follows' => [
         'icon' => 'share-alt',
         'role'   => 'admin',
@@ -133,6 +133,28 @@ return [
                 'name'  => 'fake',
                 'role'  => 'admin',
                 'route' => 'follows.edit',
+            ],
+        ],
+    ],
+
+    'Pages' => [
+        'icon' => 'file',
+        'role'   => 'admin',
+        'children' => [
+            [
+                'name'  => 'All pages',
+                'role'  => 'admin',
+                'route' => 'pages.index',
+            ],
+            [
+                'name'  => 'Add',
+                'role'  => 'admin',
+                'route' => 'pages.create',
+            ],
+            [
+                'name'  => 'fake',
+                'role'  => 'admin',
+                'route' => 'pages.edit',
             ],
         ],
     ],
