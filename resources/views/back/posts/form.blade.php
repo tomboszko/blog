@@ -11,13 +11,13 @@
 
 @section('main')
 
-    <form 
-        method="post" 
-        action="{{ Route::currentRouteName() === 'posts.edit' ? route('posts.update', $post->id) : route('posts.store') }}">
+<form 
+method="post" 
+action="{{ Route::currentRouteName() === 'posts.edit' ? route('posts.update', $post->id) : route('posts.store') }}">
 
-        @if(Route::currentRouteName() === 'posts.edit')
-            @method('PUT')
-        @endif
+@if(Route::currentRouteName() === 'posts.edit')
+    @method('PUT')
+@endif
         
         @csrf
 
