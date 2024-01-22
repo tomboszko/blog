@@ -10,7 +10,8 @@ use App\Http\Controllers\Front\{
 };
 use App\Http\Controllers\Back\{
     AdminController,
-    PostController as BackPostController
+    PostController as BackPostController,
+    ResourceController as BackResourceController
 };
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], function () {
@@ -24,7 +25,6 @@ Route::name('author')->get('author/{user}', [FrontPostController::class, 'user']
 Route::name('tag')->get('tag/{tag:slug}', [FrontPostController::class, 'tag']);
 Route::name('page')->get('page/{page:slug}', FrontPageController::class);
 
-// Posts
 Route::prefix('posts')->group(function () {
     Route::name('posts.display')->get('{slug}', [FrontPostController::class, 'show']);
     Route::name('posts.search')->get('', [FrontPostController::class, 'search']);
@@ -36,7 +36,6 @@ Route::name('front.comments.destroy')->delete('comments/{comment}', [FrontCommen
 // Contact
 Route::resource('contacts', FrontContactController::class, ['only' => ['create', 'store']]);
 
-// Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -66,7 +65,9 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('admin')->group(function () {
         
-        
+        // Posts
         Route::name('posts.indexnew')->get('newposts', [BackPostController::class, 'index']);
+        // Categories
+        Route::resource('categories', BackResourceController::class)->except(['show']);
     });
 });
