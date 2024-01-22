@@ -82,5 +82,7 @@ Route::prefix('admin')->group(function () {
         // Contacts
         Route::resource('contacts', BackResourceController::class)->only(['index', 'destroy']);
         Route::name('contacts.indexnew')->get('newcontacts', [BackResourceController::class, 'index']);
+        // Follows (social links)
+        Route::resource('follows', BackResourceController::class)->except(['show']);
     });
 });
