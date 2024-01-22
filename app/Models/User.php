@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Events\ModelCreated;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => ModelCreated::class,
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -44,16 +54,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * Determine if user is administrator
-     *
-     * @return boolean
-     */
-    public function isAdmin()
-    {
-        return $this->role === 'admin';
-    }
-
-    /**
      * One to Many relation
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -73,9 +73,13 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    
-
-    protected $dispatchesEvents = [
-        'created' => ModelCreated::class,
-    ];
+    /**
+     * Determine if user is administrator
+     *
+     * @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
 }

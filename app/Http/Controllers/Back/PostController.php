@@ -10,14 +10,15 @@ use App\DataTables\PostsDataTable;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the posts.
      *
+     * @param  \App\DataTables\PostsDataTable  $dataTable
      * @return \Illuminate\Http\Response
      */
     public function index(PostsDataTable $dataTable)
-{
-    return $dataTable->render('back.shared.index');
-}
+    {
+        return $dataTable->render('back.shared.index');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -36,17 +37,6 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
     {
         //
     }
