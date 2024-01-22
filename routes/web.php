@@ -24,6 +24,7 @@ Route::name('author')->get('author/{user}', [FrontPostController::class, 'user']
 Route::name('tag')->get('tag/{tag:slug}', [FrontPostController::class, 'tag']);
 Route::name('page')->get('page/{page:slug}', FrontPageController::class);
 
+// Posts
 Route::prefix('posts')->group(function () {
     Route::name('posts.display')->get('{slug}', [FrontPostController::class, 'show']);
     Route::name('posts.search')->get('', [FrontPostController::class, 'search']);
@@ -35,6 +36,7 @@ Route::name('front.comments.destroy')->delete('comments/{comment}', [FrontCommen
 // Contact
 Route::resource('contacts', FrontContactController::class, ['only' => ['create', 'store']]);
 
+// Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -58,12 +60,13 @@ Route::prefix('admin')->group(function () {
         // Purge
         Route::name('purge')->put('purge/{model}', [AdminController::class, 'purge']);
         // Posts
-        Route::resource('posts', BackPostController::class)->except('show');
+        Route::resource('posts', BackPostController::class)->except(['show', 'create']);
+        Route::name('posts.create')->get('posts/create/{id?}', [BackPostController::class, 'create']);
     });
 
     Route::middleware('admin')->group(function () {
         
-        // Posts
+        
         Route::name('posts.indexnew')->get('newposts', [BackPostController::class, 'index']);
     });
 });
