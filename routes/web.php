@@ -34,6 +34,7 @@ Route::name('author')->get('author/{user}', [FrontPostController::class, 'user']
 Route::name('tag')->get('tag/{tag:slug}', [FrontPostController::class, 'tag']);
 Route::name('page')->get('page/{page:slug}', FrontPageController::class);
 
+// Posts
 Route::prefix('posts')->group(function () {
     Route::name('posts.display')->get('{slug}', [FrontPostController::class, 'show']);
     Route::name('posts.search')->get('', [FrontPostController::class, 'search']);
