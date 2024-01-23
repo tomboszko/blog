@@ -238,7 +238,7 @@ return [
     */
 
     'nbrPages' => [
-        'posts' => 6,
+        'posts' => 8,
     ],
 
 
