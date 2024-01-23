@@ -4448,7 +4448,7 @@ body.search-is-visible {
 .s-content {
     --row-max-width: 1400px;
     background-color: white;
-    padding-top: calc(5.5 * var(--space));
+    padding-top: calc(2 * var(--space));
 }
 
 .s-content--no-top-padding {
