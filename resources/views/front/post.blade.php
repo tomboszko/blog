@@ -110,7 +110,7 @@
         @endif
 
     </div>
-</div>>
+</div>
 
   @if(Auth::check())
 
