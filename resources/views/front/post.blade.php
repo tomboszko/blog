@@ -93,22 +93,24 @@
 ================================================== -->
 <div class="comments-wrap">
 
-  <div id="comments" class="row">
-      <div id="commentsList" class="column large-12">      
+<div id="comments" class="row">
+    <div id="commentsList" class="column large-12">      
 
-          @if($post->valid_comments_count > 0)
-              <div id="forShow">
-                  <p id="showbutton" class="text-center">
-                      <a id="showcomments" href="{{ route('posts.comments', $post->id) }}" class="btn h-full-width">@lang('Show comments')</a>
-                  </p>
-                  <p id="showicon" class="h-text-center" hidden>
-                      <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
-                  </p>
-              </div>
-          @endif
+        @if($post->valid_comments_count > 0)
+            <div id="forShow">
+                <p id="showbutton" class="text-center">
+                    <a id="showcomments" href="{{ route('posts.comments', $post->id) }}" class="btn h-full-width">
+                        @lang('Show comments') ({{ $post->valid_comments_count }})
+                    </a>
+                </p>
+                <p id="showicon" class="h-text-center" hidden>
+                    <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                </p>
+            </div>
+        @endif
 
-      </div>
-  </div>
+    </div>
+</div>>
 
   @if(Auth::check())
 
@@ -150,7 +152,7 @@
 
 @endsection
 
-@section('scripts')
+@section('scripts') <!-- coded in JS to manage comments loading (was tricky) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         (() => {
