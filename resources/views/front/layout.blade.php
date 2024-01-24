@@ -73,10 +73,22 @@
                                 <li><a href="{{ route('category', $category->slug) }}">{{ $category->title }}</a></li>
                             @endforeach
                         </ul>
+
+                        <li class="has-children">
+                            <a href="#" title="">@lang('Pages')</a>
+                            <ul class="sub-menu">
+                                @foreach($pages as $page)
+                                <li><a href="{{ route('page', $page->slug) }}">@lang($page->title)</a></li>
+                            @endforeach
+                            </ul>
+                        </li>
+
                     </li>
                     <li {{ currentRoute('contacts.create') }}>
                         <a href="{{ route('contacts.create') }}" title="">@lang('Contact')</a>
                     </li>
+
+
                     @guest
                         @request('register')
                             <li class="current">
@@ -210,7 +222,7 @@
     
                 <div class="column large-2 medium-3 tab-6 s-footer__social-links">
     
-                    <h5>@lang('Follow Us')</h5>
+                    <h5>@lang('Follow Us')</h5> 
     
                     <ul>
                         @foreach($follows as $follow)
