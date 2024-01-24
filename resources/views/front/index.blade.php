@@ -15,7 +15,7 @@
           </div>
 
           <div class="s-hero__social hide-on-mobile-small">
-            <p>@lang('Follow')</p>
+            <p>@lang('Follow Us')</p>
             <span></span>
             <ul class="s-hero__social-icons">
             @foreach($follows as $follow)

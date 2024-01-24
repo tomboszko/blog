@@ -4574,6 +4574,8 @@ body.search-is-visible {
 
 /* entry meta
  * ------------------------------------------------ */
+
+ 
 .s-content__entry-meta {
     -ms-flex-order: -1;
     -webkit-box-ordinal-group: 0;
@@ -4607,6 +4609,7 @@ body.search-is-visible {
 .s-content__entry-meta .tagtext {
     display: block;
 }
+
 
 .s-content__entry-meta .entry-author {
     margin-bottom: var(--vspace-0_5);
