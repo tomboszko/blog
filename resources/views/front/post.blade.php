@@ -31,7 +31,7 @@
 
                   <div class="entry-author meta-blk">
                       <div class="author-avatar">
-                          <img class="avatar" src="{{ Laravolt::get($post->user->email) }}" alt="">
+                        <img class="avatar" src="{{ Avatar::create($post->user->name)->toBase64() }}" alt="">
                       </div>
                       <div class="byline">
                           <span class="bytext">@lang('Posted By')</span>

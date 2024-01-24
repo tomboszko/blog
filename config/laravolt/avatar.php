@@ -41,7 +41,7 @@ return [
     'fontSize' => 48,
 
     // convert initial letter in uppercase
-    'uppercase' => false,
+    'uppercase' => true,
 
     // Right to Left (RTL)
     'rtl' => false,
@@ -92,7 +92,7 @@ return [
     // 1. Theme name as string: 'colorful'
     // 2. Or array of string name: ['grayscale-light', 'grayscale-dark']
     // 3. Or wildcard "*" to use all defined themes
-    'theme' => ['colorful'],
+    'theme' => ['grayscale-dark'],
 
     // Predefined themes
     // Available theme attributes are:

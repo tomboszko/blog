@@ -2,6 +2,7 @@
     @lang('Comments')
     @if(Auth::guest())
         <span>@lang('You must be connected to add a comment or reply.')</span>
+        <a href="{{ route('login') }}">@lang('Login')</a>
     @endif
 </h3>
 <!-- Commentlist -->
