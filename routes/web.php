@@ -60,6 +60,8 @@ require __DIR__.'/auth.php';
 |--------------------------------------------------------------------------|
 */
 
+
+ // ADMIN REDAC
 Route::prefix('admin')->group(function () {
 
     Route::middleware('redac')->group(function () {
@@ -79,6 +81,8 @@ Route::prefix('admin')->group(function () {
         Route::name('comments.indexnew')->get('newcomments', [BackResourceController::class, 'index']); 
     });
 
+
+//ADMIN ADMIN
     Route::middleware('admin')->group(function () {
         
         // Posts
