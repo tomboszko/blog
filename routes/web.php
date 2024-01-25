@@ -82,7 +82,7 @@ Route::prefix('admin')->group(function () {
     });
 
 
-//ADMIN ADMIN
+    //ADMIN ADMIN
     Route::middleware('admin')->group(function () {
         
         // Posts
