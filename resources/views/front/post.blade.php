@@ -8,16 +8,16 @@
   <div class="column large-12">
 
       <article class="s-content__entry format-standard">
-
+<div class="s-content__entry-header">
+              <h1 class="s-content__title s-content__title--post">{{ $post->title }}</h1>
+          </div>
           <div class="s-content__media">
               <div class="s-content__post-thumb">
                   <img src="{{ getImage($post) }}" alt="" style="width:100%">
               </div>
           </div>
 
-          <div class="s-content__entry-header">
-              <h1 class="s-content__title s-content__title--post">{{ $post->title }}</h1>
-          </div>
+          
 
           <div class="s-content__primary">
 

@@ -199,12 +199,8 @@
                     <h5>@lang('About Our Site')</h5>
     
                     <p>
-                    Lorem ipsum Ut velit dolor Ut labore id fugiat in ut 
-                    fugiat nostrud qui in dolore commodo eu magna Duis 
-                    cillum dolor officia esse mollit proident Excepteur 
-                    exercitation nulla. Lorem ipsum In reprehenderit 
-                    commodo aliqua irure.
-                    </p>
+                    Le blog de Tom Boszko est un blog personnel qui a pour but de partager
+                    des articles sur les nouvelles technologies et les phénomènes de société sous-jacents pour informer et surtout susciter des débats constructifs.</p>
     
                 </div>
     
@@ -241,7 +237,7 @@
                 <div class="column">
                     <div class="ss-copyright">
                         <span>© Copyright Tom Boszko 2024</span> 
-                          <span>Design by ... <!--<a href="https://www.styleshout.com/">StyleShout</a></span>  -->
+                          <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
                     </div>
                 </div>
             </div> 
