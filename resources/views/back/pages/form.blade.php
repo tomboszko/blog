@@ -5,7 +5,7 @@
     <form 
         method="post" 
         action="{{ Route::currentRouteName() === 'pages.edit' ? route('pages.update', $page->id) : route('pages.store') }}">
-
+        @csrf
         @if(Route::currentRouteName() === 'pages.edit')
             @method('PUT')
         @endif
