@@ -4,5 +4,5 @@
         type="checkbox" 
         name="rgpd"
         {{ old('rgpd') ? 'checked' : '' }}> 
-    <span class="label-text">@lang("I have read and accept the site's privacy policy.")</span>
+    <span class="label-text">@lang("I have read and accept the site's")<a href="/page/privacy-policy"> @lang("privacy policy")</a></span>
 </label>
