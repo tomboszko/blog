@@ -6,7 +6,7 @@
         } else {
             submit.setAttribute('disabled', true);
             submit.style.cursor = 'not-allowed';
-            submit.title = 'You must accept the privacy policy';   
+            submit.title = 'Vous devez accepter la politique de confidentialité';   
         }
     }
 
