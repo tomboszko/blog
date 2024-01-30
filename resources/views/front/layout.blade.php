@@ -237,6 +237,7 @@
                 <div class="column">
                     <div class="ss-copyright">
                         <span>© Copyright Tom Boszko 2024</span> 
+                        <span>IN SILICO VADE MECUM</span>
                           <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
                     </div>
                 </div>
