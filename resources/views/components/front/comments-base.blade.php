@@ -3,9 +3,9 @@
 <li class="comment">
 
   <div class="comment__avatar"> <!-- MUST CHANGE: Gravatar trop moche -->
-      <img class="avatar" src="{{ Gravatar::get($comment->user->email) }}">
+    <img class="avatar" src="{{ Avatar::create($comment->user->name)->toBase64() }}" alt="">
   </div>
-
+  
   <div class="comment__content">
 
       <div class="comment__info">
