@@ -83,6 +83,6 @@ protected function registered(Request $request, $user)
     $this->guard()->logout();
 
     // Redirect to login page with a success message
-    return redirect('/login')->with('status', 'Registered successfully, please verify your email');
+    return redirect('/login')->with('status', trans('Registered successfully, please verify your email'));
 }
 }
