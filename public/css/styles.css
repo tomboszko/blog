@@ -2057,7 +2057,7 @@ img,
     max-width: 500px; /* Set a max-width for larger screens */
     margin: 5% auto; /* Center the modal */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
