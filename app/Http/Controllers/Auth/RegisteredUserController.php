@@ -38,15 +38,15 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        Auth::login($user = User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]));
+        ]);
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('status', 'Registered successfully, please verify your email');
     }
 
     public function update(Request $request)
@@ -75,5 +75,14 @@ public function destroy(Request $request)
     $request->user()->delete();
 
     return response()->json();
+}
+
+protected function registered(Request $request, $user)
+{
+    // Log out the user
+    $this->guard()->logout();
+
+    // Redirect to login page with a success message
+    return redirect('/login')->with('status', 'Registered successfully, please verify your email');
 }
 }

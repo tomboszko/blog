@@ -185,6 +185,17 @@
 
     </section>
 
+    <!-- MODAL status
+    ================================================== -->
+    @if (session('status'))
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>{{ session('status') }}</p>
+        </div>
+    </div>
+@endif
+
 
     <!-- footer
     ================================================== -->
@@ -258,6 +269,31 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+    <script> // MODAL status
+    $(document).ready(function() {
+        var modal = document.getElementById("statusModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        if (modal) {
+            modal.style.display = "block";
+        }
+
+        if (span) {
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+    </script>
+
+
     @yield('scripts')
 
 </body>

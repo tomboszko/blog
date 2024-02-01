@@ -15,7 +15,7 @@ use App\Http\Controllers\Back\{
     UserController as BackUserController,
 };
 use App\Http\Controllers\Auth\RegisteredUserController;
-
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => 'auth'], function () {
     Lfm::routes();
 });
@@ -100,4 +100,15 @@ Route::prefix('admin')->group(function () {
         // Pages
         Route::resource('pages', BackResourceController::class)->except(['show']);
     });
+
+// Email verification
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->middleware('auth')->name('verification.notice');
+    
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+    
+        return redirect('/login')->with('status', 'Your email has been verified, please login.');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 });
