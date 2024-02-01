@@ -2050,18 +2050,22 @@ img,
 }
 
 .modal-content {
-    background-color: #fefefe40;
-    margin: 15% auto;
-    padding-top: auto;
-    padding-bottom: auto;
+    background-color: #fefefe;
+    padding: 20px;
     border: 1px solid #888;
-    width: 33%;
-    color: #000000;
-    text-align: center;
+    width: 80%;
+    max-width: 500px; /* Set a max-width for larger screens */
+    margin: 5% auto; /* Center the modal */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%; /* Increase width on smaller screens */
+    }
 }
 
 .close {
