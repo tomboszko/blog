@@ -13,7 +13,7 @@
           </div>
           <div class="s-content__media">
               <div class="s-content__post-thumb">
-                  <img src="{{ getImage($post) }}" alt="" style="width:100%">
+                  <img class="center" src="{{ getImage($post) }}" alt="" style="width:75%" >
               </div>
           </div>
 
