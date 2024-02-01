@@ -2056,7 +2056,12 @@ img,
     padding-bottom: auto;
     border: 1px solid #888;
     width: 33%;
-    color:#000000
+    color: #000000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .close {
