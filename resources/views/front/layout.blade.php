@@ -213,11 +213,7 @@
                         Bienvenue sur le blog personnel de Tom Boszko, 
                         un espace dédié à l'exploration et à la discussion des avancées 
                         les plus récentes dans le domaine des nouvelles technologies, ainsi 
-                        que des phénomènes sociétaux qui leur sont liés. Ce blog vise à 
-                        offrir des perspectives éclairées et des analyses approfondies pour 
-                        non seulement informer nos lecteurs mais également pour stimuler des 
-                        débats constructifs et enrichissants. Rejoignez-nous dans cette aventure 
-                        intellectuelle où la curiosité et la connaissance sont les maîtres mots.</p>
+                        que des phénomènes sociétaux qui leur sont liés.</p>
     
                 </div>
     
@@ -254,7 +250,7 @@
                 <div class="column">
                     <div class="ss-copyright">
                         <span>© Copyright Tom Boszko 2024</span> 
-                        <span>IN SILICO VADE MECUM</span>
+                        <span>Hosted by <a href="https://www.ovhcloud.com/">OVH</a></span></span>
                           <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
                     </div>
                 </div>
