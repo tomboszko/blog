@@ -96,7 +96,7 @@
                             </li>
                         @endrequest
                         <li {{ currentRoute('login') }}>
-                            <a href="{{ route('login') }}">@lang('Login')</a>
+                            <a href="{{ route('login') }}" >@lang('Login') </a>
                         </li>                        
                         @request('forgot-password')
                             <li class="current">
