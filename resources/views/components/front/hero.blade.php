@@ -28,22 +28,6 @@
 
 </div>
 
-<!-- AUTOPLAY SLICK SLIDER
-  
- JavaScript code at the bottom of the file
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-code: 
 
-<script>
-$(document).ready(function(){
-    $('.s-hero__slider').slick({
-        autoplay: true,
-        autoplaySpeed: 2000, // Change this value to adjust the speed of the autoplay
-    });
-});
-</script>
-
--->
 
