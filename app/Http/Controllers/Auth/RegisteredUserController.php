@@ -67,7 +67,7 @@ class RegisteredUserController extends Controller
 
     $request->user()->update($values);
     
-    return back()->with('status', __('You have been successfully updated.'));
+    return back()->with('status', trans('You have been successfully updated.'));
 }
 
 public function destroy(Request $request)
