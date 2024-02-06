@@ -2212,7 +2212,7 @@ select {
     display: block;
     height: var(--input-height);
     padding: var(--input-vpadding) 0 calc(var(--input-vpadding) - .1rem);
-    border: 0;
+    /*border: 0;*/
     outline: none;
     color: var(--color-text);
     font-family: var(--font-1);
