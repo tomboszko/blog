@@ -1637,8 +1637,8 @@ a:hover, a:active {
  * -------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 400;
-    font-style: normal;
+    font-weight: 800;
+    font-style: var(--font-1);
     color: var(--color-text-dark);
     -webkit-font-variant-ligatures: common-ligatures;
     font-variant-ligatures: common-ligatures;
@@ -3137,6 +3137,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 /* ------------------------------------------------------------------- 
  * ## close button for search & mobile nav
  * ------------------------------------------------------------------- */
+
+
+
+ 
 .s-header__overlay-close {
     font: 0/0 a;
     text-shadow: none;
@@ -3148,8 +3152,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     -webkit-transform: scale(0.85);
     transform: scale(0.85);
     position: absolute;
-    top: var(--vspace-1);
-    left: 50%;
+    top: 50%;
+    right:4rem;
 }
 
 .s-header__overlay-close:hover {
@@ -3330,6 +3334,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .bricks-wrapper .entry__title {
+    font-family: var(--font-1);
     font-size: var(--text-xl);
     font-weight: 400;
     line-height: calc(var(--vspace-1) + var(--vspace-0_125));
@@ -3564,7 +3569,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .s-header__nav-wrap .s-header__nav-heading {
-    font-family: var(--font-1);
+    
     font-weight: 400;
     font-size: calc(var(--text-size) * 0.7778);
     letter-spacing: .4em;
