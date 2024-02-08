@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\{ User, Contact, Post, Comment, Page };
 use Illuminate\Support\Facades\DB;
+use App\Models\Like;
 
 class DatabaseSeeder extends Seeder
 {
@@ -241,5 +242,10 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Dribbble', 'href' => '#'],
             ['title' => 'Instagram', 'href' => '#'],
         ]);
+
+
+        // Likes
+        $this->call(LikesSeeder::class);
+        
     }
 }
