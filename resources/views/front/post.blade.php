@@ -131,7 +131,7 @@
             <form id="messageForm" method="post" action="{{ route('posts.comments.store', $post->id) }}" autocomplete="off">
                 <input id="commentId" name="commentId" type="hidden" value="">
                 <div class="message form-field">
-                    <textarea name="message" id="message" class="h-full-width" placeholder="@lang('Your Message')"></textarea>
+                    <textarea name="message" id="message" class="h-full-width" placeholder="@lang('Your message')"></textarea>
                 </div>
                 <br>
                 <p id="forSubmit" class="text-center">

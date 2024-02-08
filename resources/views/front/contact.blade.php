@@ -42,8 +42,8 @@
                           @endif
 
                           <!-- Message -->                          
-                          <label for="message">@lang('Your Message')</label> 
-                          <textarea name="message" id="message" class="h-full-width" placeholder="@lang('Your Message')" required>{{ old('message') }}</textarea>                          
+                          <label for="message">@lang('Please write your message below:')</label> 
+                          <textarea name="message" id="message" class="h-full-width" placeholder="@lang('Your message')" required>{{ old('message') }}</textarea>                          
 
                           <br>
                           <x-auth.submit title="Send" />
