@@ -470,7 +470,8 @@ button, select {
 /* Correct the inability to style clickable types in iOS and Safari. */
 
 button, [type="button"], [type="reset"], [type="submit"] {
-    -webkit-appearance: button;
+    -webkit-appearance: button; /* Chrome, Safari, Opera */
+    appearance: button; /* Standard syntax */
 }
 
 /* Remove the inner border and padding in Firefox. */
@@ -546,10 +547,9 @@ textarea {
  * 2. Correct the outline style in Safari. */
 
 [type="search"] {
-    -webkit-appearance: textfield;
-    /* 1 */
+    -webkit-appearance: textfield; /* Chrome, Safari, Opera */
+    appearance: textfield; /* Standard syntax */
     outline-offset: -2px;
-    /* 2 */
 }
 
 /* Remove the inner padding in Chrome and Safari on macOS. */
@@ -3152,8 +3152,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     -webkit-transform: scale(0.85);
     transform: scale(0.85);
     position: absolute;
-    top: 50%;
-    right:4rem;
+    top: var(--vspace-1);
+    left: 50%;
 }
 
 .s-header__overlay-close:hover {
