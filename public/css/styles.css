@@ -1646,7 +1646,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-    font-family: var(--font-2);
+    font-family: var(--font-1);
 }
 
 h6, .h6 {
@@ -3336,7 +3336,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .bricks-wrapper .entry__title {
     font-family: var(--font-1);
     font-size: var(--text-xl);
-    font-weight: 400;
+    font-weight: 600;
     line-height: calc(var(--vspace-1) + var(--vspace-0_125));
     margin-top: 0;
     margin-bottom: calc(0.375 * var(--space));
@@ -4260,9 +4260,9 @@ body.search-is-visible {
 }
 
 .s-hero__slide-text {
-    font-family: var(--font-3);
+    font-family: var(--font-1);
     font-size: 8.8rem;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.091;
     letter-spacing: -.01em;
     color: white;
