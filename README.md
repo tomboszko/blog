@@ -69,12 +69,5 @@ Contributions are welcome! To contribute:
 3. Make clear and detailed commits.
 4. Submit a pull request for review.
 
-## License
 
-This project does not currently specify a license. Please add a `LICENSE` file to include one.
-
-## Credits
-
-- **Author**: [tomboszko](https://github.com/tomboszko)
-- **Contributors**: See the list of [contributors](https://github.com/tomboszko/blog/graphs/contributors) who participated in this project.
 
