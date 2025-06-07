@@ -20,7 +20,7 @@
             <ul class="s-hero__social-icons">
             @foreach($follows as $follow)
                 <li>
-                    <a href="{{ $follow->href }}" target="_blank" >
+                    <a href="{{ $follow->href }}" target="_blank" rel="noopener noreferrer">
                         <i 
                             class="fab fa-{{ $follow->title === 'Facebook' ? 'facebook-f' : lcfirst($follow->title) }}" 
                             aria-hidden="true">
