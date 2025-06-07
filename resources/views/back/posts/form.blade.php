@@ -27,9 +27,9 @@ action="{{ Route::currentRouteName() === 'posts.edit' ? route('posts.update', $p
                 <x-back.validation-errors :errors="$errors" />
 
                 @if(session('ok'))
-                    <x-back.alert 
+                    <x-back.alert
                         type='success'
-                        title="{!! session('ok') !!}">
+                        title="{{ session('ok') }}">
                     </x-back.alert>
                 @endif
 

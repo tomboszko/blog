@@ -235,7 +235,7 @@
     
                     <ul>
                         @foreach($follows as $follow)
-                            <li><a href="{{ $follow->href }}" target="_blank">{{ $follow->title }}</a></li>
+                            <li><a href="{{ $follow->href }}" target="_blank" rel="noopener noreferrer">{{ $follow->title }}</a></li>
                         @endforeach
                     </ul>
     
